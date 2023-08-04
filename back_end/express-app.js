@@ -6,7 +6,7 @@ const { centralErrorHandler } = require("./util/central-error");
 // const cache = new NodeCache({ stdTTL: 100, checkperiod: 100 });
 module.exports = async (app) => {
     app.get("/", (req, res) => {
-        return res.status(200)
+        return res.status(200).json({success: true})
     });
     app.use(express.json());
     app.use(cors());

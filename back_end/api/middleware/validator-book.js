@@ -2,7 +2,6 @@ const { validationResult, param } = require('express-validator');
 const validationSkuRules = () => {
     return [
         param('sku').notEmpty().withMessage('Sku not found').trim(),
-        //HH:mm
     ]
 }
 /**
