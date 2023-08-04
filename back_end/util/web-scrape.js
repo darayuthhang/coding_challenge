@@ -1,5 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const { WebScrapeFoundError } = require("./app-error");
 class WebScrape{
     /**
      * 
@@ -34,7 +35,7 @@ class WebScrape{
             };
         } catch (error) {
             console.error('Error fetching data:', error);
-            return null;
+            throw new WebScrapeFoundError(error);
         }
     }
 }

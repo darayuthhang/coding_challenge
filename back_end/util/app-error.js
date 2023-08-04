@@ -20,7 +20,13 @@ class XmlNotFoundError extends AppError {
         super(message || 'No Xml data found.', STATUS_CODES.NOT_FOUND);
     }
 }
+class WebScrapeFoundError extends AppError {
+    constructor(message) {
+        super(message || 'No Xml data found.', STATUS_CODES.NOT_FOUND);
+    }
+}
 module.exports = {
     BookNotFoundError,
-    XmlNotFoundError
+    XmlNotFoundError,
+    WebScrapeFoundError
 };
