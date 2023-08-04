@@ -5,16 +5,15 @@ module.exports = (app) => {
     const {API_VERSION} = Constant;
     const bookService = new BookService();
     /**
-     * GET - search /api/v1/search/:sku
+     * GET - search /api/v1/search/?sku=4173EB
      */
-    app.get(`${API_VERSION}/search/:sku`, 
+    app.get(`${API_VERSION}/search`, 
         validationSkuRules(), 
         validateBookData, 
         async (req, res, next) => {
         try {
-            console.log(req.params?.sku);
-            await bookService.search(req.params);
-            return res.status(200).json({success: true})
+            let productInfoData = await bookService.search(req.query);
+            return res.status(200).json({success: true, data:productInfoData})
         } catch (error) {
             next(error);
         }

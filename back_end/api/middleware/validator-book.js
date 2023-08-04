@@ -1,7 +1,7 @@
-const { validationResult, param } = require('express-validator');
+const { validationResult, query } = require('express-validator');
 const validationSkuRules = () => {
     return [
-        param('sku').notEmpty().withMessage('Sku not found').trim(),
+        query('sku').notEmpty().withMessage('Sku not found').trim().toUpperCase(),
     ]
 }
 /**
