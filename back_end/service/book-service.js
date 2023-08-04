@@ -40,6 +40,7 @@ class BookService{
             if(this.result.length <= 0){
                 throw new Error("Book not found.");
             }
+            
             return this.result;
         } catch (error) {
             throw new BookNotFoundError(error);
