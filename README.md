@@ -1,15 +1,15 @@
-# coding_challenge
+# Coding_challenge
     Web app that allow users to search for title, author, price, image base on sku
 
-# ex URL 
+# Ex URL 
      https://www.christianbook.com/zoe-pencarrow-and-the-secret-lamb/dan-robertson/9781498431408/pd/431405 
 
-# skus for testing: 
+# Skus for testing: 
     * 409251
     * 431405
     * 4173EB
 
-# api:
+# Api:
     Request
         GET - search /api/v1/search/?sku=4173EB 
     Response
@@ -25,7 +25,7 @@
                 }
             ]
         }
-        
+
 # Run:
     bash build.sh
     bash run.sh
@@ -39,3 +39,5 @@
     If you were to critique your code, what would you have to say about it?
     How can you change your system be updated to support simple keyword searches?
 
+# Author
+    Darayuth Hang

@@ -22,7 +22,7 @@ class XmlNotFoundError extends AppError {
 }
 class WebScrapeFoundError extends AppError {
     constructor(message) {
-        super(message || 'No Xml data found.', STATUS_CODES.NOT_FOUND);
+        super(message || 'No Web data found.', STATUS_CODES.NOT_FOUND);
     }
 }
 module.exports = {

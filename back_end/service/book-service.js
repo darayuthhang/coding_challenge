@@ -11,17 +11,7 @@ class BookService{
         this.webScrape = new WebScrape();
     }
     async search({sku}){
-        try {
-            /**
-             * @Test sku
-            * https://www.christianbook.com/zoe-pencarrow-and-the-secret-lamb/dan-robertson/9781498431408/pd/431405
-            * - 409251
-            * - 431405
-            * - 4173EB
-            * - 318576
-             */
-            //https://www.christianbook.com/zondervan-encyclopedia-color-edition-new-edition/9780310876960/pd/4173EB
-           
+        try {     
             const cbdProductDetailInfoTitle = '.CBD-ProductDetailInfo .CBD-ProductDetailTitle';
             const cbdProductDetailInfoAuthor = '.CBD-ProductDetailInfo .CBD-ProductDetailAuthor a';
             const cbdProductDetailPriceBoxHtml = ".CBD-ProductDetailPriceBox .CBD-ProductDetailActionPrice span"
