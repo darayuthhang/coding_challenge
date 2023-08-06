@@ -2,28 +2,25 @@ import React from 'react';
 import {
     InputGroup, 
     Form, 
-    Button,
+    Button
     } from 'react-bootstrap';
 
 const SearchItem = ({
-    onhandleSearch,
-    onhandleSubmit
+    onhandleSearch
 }) => {
     return ( 
-        <Form className='m-3' onSubmit={onhandleSubmit} inline>
-            <InputGroup className="">
-                <Form.Control
-                    type="text"
-                    name="search"
-                    placeholder="Search for book with "
-                    onChange={onhandleSearch}
-                    required
-                />
-                <Button variant="outline-secondary"  type="bumit">
-                    Search
-                </Button>
-            </InputGroup>
-        </Form>    
+        <InputGroup className="">
+            <Form.Control
+                type="text"
+                name="search"
+                placeholder="Search for book with "
+                onChange={onhandleSearch}
+                required
+            />
+            <Button variant="outline-secondary" type="bumit">
+                Search
+            </Button>
+        </InputGroup>     
     );
 };
 

@@ -1,5 +1,11 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { 
+    Container,
+    Row, 
+    Col, 
+    Spinner,
+    Form
+ } from 'react-bootstrap';
 import SearchItem from '../component/SearchItem';
 import ListItem from '../component/ListItem';
 import useBookSearch from '../hook/useBookSearch';
@@ -11,22 +17,27 @@ const Book = () => {
         listItemLoading,
         listItemError
     ] = useBookSearch('');
-  
-
-    // const onhandleSubmit = (e) => {
-    //     e.preventDefault();
-    //     alert("submit");
-    //     console.log(sku);
-    // }
     return (
         <div>
             <Container>
                 <Row>
                     <Col md={{ span: 6, offset: 3 }}>
-                        <SearchItem 
-                            onhandleSearch={onhandleChange}
-                            onhandleSubmit={onhandleSubmit}
+                        <Form className='m-3' onSubmit={onhandleSubmit} inline>
+                            <SearchItem
+                                onhandleSearch={onhandleChange}
                             />
+                            {listItemError && <div className='text-danger'>{listItemError}</div>}
+                            {listItemLoading && 
+                                <div className='d-flex justify-content-center'>
+                                    <Spinner
+                                        className=''
+                                        animation="border"
+                                        role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </Spinner>
+                                </div>
+                            }
+                        </Form>
                     </Col>
                 </Row>
                 {listItem.length > 0 &&
@@ -42,7 +53,6 @@ const Book = () => {
                         </Col>
                     </Row>
                 }
-             
             </Container>
           
         </div>
