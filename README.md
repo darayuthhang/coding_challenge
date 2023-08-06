@@ -25,6 +25,11 @@
                 }
             ]
         }
+        
+# Run:
+    bash build.sh
+    bash run.sh
+
 # Q&A
     How does your system work?
     How could you scale your system to search across all sitemap files?
