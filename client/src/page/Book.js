@@ -41,10 +41,11 @@ const Book = () => {
                         </div>
                     :
                     !listItemError && listItem.length > 0 &&
-                        <Row className='border text-center'>
+                        <Row className=' text-center'>
                             {listItem.map((val, index) => 
                                 <Col key={index}>
                                     <Item 
+                                        productImage={val?.productImage}
                                         author={val?.author}
                                         title={val?.title}
                                         detailPriceActionRetail={val?.detailPriceActionRetail}
