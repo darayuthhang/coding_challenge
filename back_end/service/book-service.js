@@ -31,7 +31,7 @@ class BookService{
             const response = await axios.get(Constant.CHRISTIAN_BOOK_URL);
             let parseData = await this.xmlUtil.parseXmlData(response?.data);
             const urlList = parseData?.urlset?.url;
-
+        
             for(let data of urlList){
                 const productUrl = data?.loc[0];
                 if (isSku(productUrl, sku)) {
@@ -48,7 +48,6 @@ class BookService{
             if(this.result.length <= 0){
                 throw new Error("Book not found.");
             }
-            
             return this.result;
         } catch (error) {
             throw new BookNotFoundError(error);

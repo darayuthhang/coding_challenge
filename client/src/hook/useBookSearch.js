@@ -10,7 +10,8 @@ const useBookSearch = (initialValue) => {
         setListItemLoading(true)
         try {
             let data = await axios.get(`/search/?sku=${sku}`);
-            setListItem(data?.data);
+            const productInfoData = data?.data?.data
+            setListItem(productInfoData);
             setListItemLoading(false)
         } catch (error) {
             setListItemError(error?.message);
@@ -18,11 +19,11 @@ const useBookSearch = (initialValue) => {
         }
     }
     const onhandleChange = (e) => {
+        resetsetItemErrorToDefault()
         setSku(e.target.value);
     }
     const onhandleSubmit = (e) => {
         e.preventDefault();
-        resetsetItemErrorToDefault()
         fetchApi();
     }
     const resetsetItemErrorToDefault = () => {
