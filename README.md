@@ -34,4 +34,3 @@
     If you were to critique your code, what would you have to say about it?
     How can you change your system be updated to support simple keyword searches?
 
-
