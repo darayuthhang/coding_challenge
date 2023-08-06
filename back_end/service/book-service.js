@@ -9,8 +9,6 @@ class BookService{
     constructor(){
         this.xmlUtil = new Xml();
         this.webScrape = new WebScrape();
-        this.result = []
-      
     }
     async search({sku}){
         try {
@@ -23,6 +21,7 @@ class BookService{
             * - 318576
              */
             //https://www.christianbook.com/zondervan-encyclopedia-color-edition-new-edition/9780310876960/pd/4173EB
+           
             const cbdProductDetailInfoTitle = '.CBD-ProductDetailInfo .CBD-ProductDetailTitle';
             const cbdProductDetailInfoAuthor = '.CBD-ProductDetailInfo .CBD-ProductDetailAuthor a';
             const cbdProductDetailPriceBoxHtml = ".CBD-ProductDetailPriceBox .CBD-ProductDetailActionPrice span"
@@ -31,7 +30,8 @@ class BookService{
             const response = await axios.get(Constant.CHRISTIAN_BOOK_URL);
             let parseData = await this.xmlUtil.parseXmlData(response?.data);
             const urlList = parseData?.urlset?.url;
-        
+            
+            let result = []
             for(let data of urlList){
                 const productUrl = data?.loc[0];
                 if (isSku(productUrl, sku)) {
@@ -42,13 +42,13 @@ class BookService{
                         cbdProductDetailPriceBoxHtml,
                         cbdProductDetailActionRetail
                     )
-                    this.result.push(productInfo);
+                    result.push(productInfo);
                 }
             }
-            if(this.result.length <= 0){
+            if(result.length <= 0){
                 throw new Error("Book not found.");
             }
-            return this.result;
+            return result;
         } catch (error) {
             throw new BookNotFoundError(error);
         }
