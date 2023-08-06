@@ -30,7 +30,7 @@ class WebScrape{
             return {
                 author,
                 title,
-                detialPriceActionRetail:detialPriceActionRetail?.trim(),
+                detailPriceActionRetail:detialPriceActionRetail?.trim(),
                 detailPriceActionAfterDisCount: detailPriceActionAfterDisCount['1']?.data
             };
         } catch (error) {

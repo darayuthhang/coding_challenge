@@ -16,10 +16,11 @@ const useBookSearch = (initialValue) => {
         } catch (error) {
             setListItemError(error?.message);
             setListItemLoading(false);
+            setListItem([]) //reset state item to default
         }
     }
     const onhandleChange = (e) => {
-        resetsetItemErrorToDefault()
+        resetsetItemErrorToDefault();
         setSku(e.target.value);
     }
     const onhandleSubmit = (e) => {

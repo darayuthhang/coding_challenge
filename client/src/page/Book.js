@@ -7,7 +7,7 @@ import {
     Form
  } from 'react-bootstrap';
 import SearchItem from '../component/SearchItem';
-import ListItem from '../component/ListItem';
+import Item from '../component/Item';
 import useBookSearch from '../hook/useBookSearch';
 const Book = () => {
     const [
@@ -27,32 +27,35 @@ const Book = () => {
                                 onhandleSearch={onhandleChange}
                             />
                             {listItemError && <div className='text-danger'>{listItemError}</div>}
-                            {listItemLoading && 
-                                <div className='d-flex justify-content-center'>
-                                    <Spinner
-                                        className=''
-                                        animation="border"
-                                        role="status">
-                                        <span className="visually-hidden">Loading...</span>
-                                    </Spinner>
-                                </div>
-                            }
                         </Form>
                     </Col>
                 </Row>
-                {listItem.length > 0 &&
-                    <Row className='border text-center'>
-                        <Col>
-                            <ListItem />
-                        </Col>
-                        <Col>
-                            <ListItem />
-                        </Col>
-                        <Col>
-                            <ListItem />
-                        </Col>
-                    </Row>
+                {listItemLoading ?
+                        <div className='d-flex justify-content-center'>
+                            <Spinner
+                                className=''
+                                animation="border"
+                                role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </Spinner>
+                        </div>
+                    :
+                    !listItemError && listItem.length > 0 &&
+                        <Row className='border text-center'>
+                            {listItem.map((val, index) => 
+                                <Col key={index}>
+                                    <Item 
+                                        author={val?.author}
+                                        title={val?.title}
+                                        detailPriceActionRetail={val?.detailPriceActionRetail}
+                                        detailPriceActionAfterDisCount={val?.detailPriceActionAfterDisCount}
+                                    />
+                                </Col>
+                            )}
+                         
+                        </Row>
                 }
+               
             </Container>
           
         </div>
