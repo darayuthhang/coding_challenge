@@ -16,7 +16,8 @@ class WebScrape{
         cbdProductDetailInfoTitle,
         cbdProductDetailInfoAuthor,
         cbdProductDetailPriceBoxHtml,
-        cbdProductDetailActionRetail
+        cbdProductDetailActionRetail,
+        cbdProductImage
     ){
         try {
             const response = await axios.get(url);
@@ -26,12 +27,13 @@ class WebScrape{
             const author = $(cbdProductDetailInfoAuthor).text();
             const detailPriceActionAfterDisCount = $(cbdProductDetailPriceBoxHtml).contents();
             const detialPriceActionRetail = $(cbdProductDetailActionRetail).text();
-           
+            const productImage = $(cbdProductImage);
             return {
                 author,
                 title,
+                productImage: "https:" + productImage.attr('src'),
                 detailPriceActionRetail:detialPriceActionRetail?.trim(),
-                detailPriceActionAfterDisCount: detailPriceActionAfterDisCount['1']?.data
+                detailPriceActionAfterDisCount: detailPriceActionAfterDisCount['1']?.data,
             };
         } catch (error) {
             console.error('Error fetching data:', error);

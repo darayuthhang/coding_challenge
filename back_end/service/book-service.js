@@ -26,6 +26,7 @@ class BookService{
             const cbdProductDetailInfoAuthor = '.CBD-ProductDetailInfo .CBD-ProductDetailAuthor a';
             const cbdProductDetailPriceBoxHtml = ".CBD-ProductDetailPriceBox .CBD-ProductDetailActionPrice span"
             const cbdProductDetailActionRetail = ".CBD-ProductDetailPriceBox .CBD-ProductDetailActionRetail del strike"
+            const cbdProductImage = '.CBD-ProductImageContainer .CBD-ProductDetailImageWrap img'
             
             const response = await axios.get(Constant.CHRISTIAN_BOOK_URL);
             let parseData = await this.xmlUtil.parseXmlData(response?.data);
@@ -40,7 +41,8 @@ class BookService{
                         cbdProductDetailInfoTitle,
                         cbdProductDetailInfoAuthor,
                         cbdProductDetailPriceBoxHtml,
-                        cbdProductDetailActionRetail
+                        cbdProductDetailActionRetail,
+                        cbdProductImage
                     )
                     result.push(productInfo);
                 }
