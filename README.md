@@ -93,7 +93,7 @@
     What documentation, websites, papers, etc did you consult in doing this assignment?
         - Google and System design book that i read
     How long did you spend on this exercise? If you had unlimited more time to spend on this, how would you spend it and how would you prioritize each item?
-        - 26 hours on this exercise, 
+        - 21 hours on this exercise, 
         - if i had unlimted more time to spend on this, I would suggest the team to use:
             * Docker as it helps to avoid different version conflicts of software dependencies and library
             * Redux as it help create centralized state management for React's state
