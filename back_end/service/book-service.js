@@ -21,7 +21,7 @@ class BookService{
             const response = await axios.get(Constant.CHRISTIAN_BOOK_URL);
             let parseData = await this.xmlUtil.parseXmlData(response?.data);
             const urlList = parseData?.urlset?.url;
-            
+          
             let result = []
             for(let data of urlList){
                 const productUrl = data?.loc[0];
