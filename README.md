@@ -102,9 +102,10 @@
             * Lastly, i will add authentication and authorization to make the app become simple full functional
               e-commerce app 
     If you were to critique your code, what would you have to say about it?
-        - Well i am not sure, maybe using Clean Architecture instead of monolithic to saparate of concern
-          and to make codebase more maintainable and testable since Clean Architecture are divided in layers
-          and each layer is independent and loosely couple from one another.
+        - Well, maybe using Clean Architecture instead of monolithic:
+            * to saparate of concern
+            * to make codebase more maintainable and testable since Clean Architecture are divided in layers
+              and each layer is independent and loosely couple from one another.
     How can you change your system be updated to support simple keyword searches?
         - Maybe load all data in cache to create key value pair look up which will improve the response
           time of the server
